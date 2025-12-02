@@ -4,15 +4,15 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.
+import androidx.compose.runtime.
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -29,7 +29,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.
 import androidx.compose.runtime.rememberCoroutineScope
 
 class MainActivity : ComponentActivity() {
@@ -80,7 +80,7 @@ data class Product(
     val description: String
 )
 
-// ===== API SERVICE =====
+//API SERVICE
 class ApiService {
     // Simulated API call without external dependencies
     suspend fun fetchProducts(): ProductsResponse = withContext(Dispatchers.IO) {
@@ -104,7 +104,7 @@ class ApiService {
     }
 }
 
-// ===== LOCAL STORAGE SIMULATION =====
+//LOCAL STORAGE SIMULATION
 object LocalStorage {
     private val savedTasks = mutableListOf<SavedTask>()
     
@@ -117,7 +117,7 @@ object LocalStorage {
     fun getTasks(): List<SavedTask> = savedTasks.toList()
 }
 
-// ===== NAVIGATION =====
+//NAVIGATION
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
@@ -179,7 +179,7 @@ fun AppNavigation() {
     }
 }
 
-// ===== STEP 1: START SCREEN =====
+//STEP 1: START SCREEN 
 @Composable
 fun StartScreen(onStartClicked: () -> Unit) {
     Column(
@@ -212,7 +212,7 @@ fun StartScreen(onStartClicked: () -> Unit) {
     }
 }
 
-// ===== STEP 2: NOISE TEST SCREEN =====
+//STEP 2: NOISE TEST SCREEN
 @Composable
 fun NoiseTestScreen(onPassClicked: () -> Unit) {
     var dbLevel by remember { mutableIntStateOf(0) }
@@ -323,7 +323,7 @@ fun NoiseTestScreen(onPassClicked: () -> Unit) {
     }
 }
 
-// ===== STEP 3: TASK SELECTION SCREEN =====
+// STEP 3: TASK SELECTION SCREEN 
 @Composable
 fun TaskSelectionScreen(
     onTextReadingClicked: () -> Unit,
@@ -451,7 +451,7 @@ fun TaskSelectionScreen(
     }
 }
 
-// ===== STEP 4: TEXT READING TASK (UPDATED WITH API) =====
+//STEP 4: TEXT READING TASK (WITH API)
 @Composable
 fun TextReadingScreen(onBack: () -> Unit, onSubmit: (TaskHistory) -> Unit) {
     var isRecording by remember { mutableStateOf(false) }
@@ -770,7 +770,7 @@ fun TextReadingScreen(onBack: () -> Unit, onSubmit: (TaskHistory) -> Unit) {
     }
 }
 
-// ===== TASK HISTORY SCREEN =====
+// TASK HISTORY SCREEN
 @Composable
 fun TaskHistoryScreen(onBack: () -> Unit) {
     val savedTasks = remember { mutableStateOf(LocalStorage.getTasks()) }
@@ -883,7 +883,7 @@ fun TaskHistoryScreen(onBack: () -> Unit) {
     }
 }
 
-// ===== PLACEHOLDER SCREENS =====
+// PLACEHOLDER SCREENS
 @Composable
 fun ImageDescriptionPlaceholder(onBack: () -> Unit) {
     Column(
